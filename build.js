@@ -105,11 +105,19 @@ p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', mo
 .contact-social a { display:block; padding: 16px 0; border-bottom: 1px solid var(--line);
   color: var(--ink); text-decoration:none; font-size: 16px; }
 .contact-social a:hover { color: var(--terracotta); }
-footer { background: var(--ink); color: var(--cream); text-align:center; padding: 50px 20px;
-  font-family:'DM Mono', monospace; font-size: 13px; letter-spacing: 1px; }
-footer img { height: 60px; margin-bottom: 18px; opacity: .9; }
-footer .footer-brand { font-weight:600; letter-spacing: 2px; margin-bottom: 6px; }
-footer .footer-tagline { opacity: .85; }
+footer { background: var(--ink); color: var(--cream); padding: 60px 60px 30px;
+  font-family:'DM Mono', monospace; font-size: 14px; letter-spacing: 0.5px; }
+.footer-grid { display:flex; justify-content:space-between; gap: 60px; flex-wrap:wrap; max-width:1400px; margin:0 auto; }
+.footer-brand-col { flex: 1 1 260px; }
+.footer-logo-box { display:inline-block; background: var(--cream); padding: 14px 22px; margin-bottom: 18px; }
+.footer-logo-box img { height: 34px; display:block; }
+.footer-tagline-text { color: #C9C2B4; font-size: 14px; margin:0; }
+.footer-col h4 { color: var(--terracotta); text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin:0 0 18px; }
+.footer-col a { display:block; color: var(--cream); text-decoration:none; font-family:'Outfit', sans-serif;
+  font-size:15px; margin-bottom:12px; opacity:.92; }
+.footer-col a:hover { color: var(--terracotta); }
+.footer-bottom { max-width:1400px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(244,238,227,0.15);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#B7AF9F; }
 .center { text-align:center; }
 `;
 
@@ -142,9 +150,29 @@ function pageShell(title, body, active) {
 ${navHtml}
 ${body}
 <footer>
-  <img src="/images/logo-light.png" alt="Meram">
-  <div class="footer-brand">MERAM STORE</div>
-  <div class="footer-tagline">SADELİK, SICAKLIK, NİYET</div>
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <div class="footer-logo-box"><img src="/images/logo.png" alt="Meram"></div>
+      <p class="footer-tagline-text">Sadelikte bir meram var.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sayfalar</h4>
+      <a href="/">Ana Sayfa</a>
+      <a href="/koleksiyon.html">Koleksiyon</a>
+      <a href="/hakkimizda.html">Hakkımızda</a>
+      <a href="/iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-col">
+      <h4>Bizi Takip Edin</h4>
+      <a href="${iletisim.instagram_url}" target="_blank" rel="noopener">Instagram</a>
+      <a href="${iletisim.etsy_url}" target="_blank" rel="noopener">Etsy</a>
+      <a href="#">Trendyol</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© ${new Date().getFullYear()} Meram Store. Tüm hakları saklıdır.</span>
+    <span>Türkiye'de tasarlandı &amp; üretildi</span>
+  </div>
 </footer>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
