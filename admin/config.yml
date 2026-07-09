@@ -1,0 +1,76 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "tr"
+
+collections:
+  - name: "home"
+    label: "Ana Sayfa"
+    files:
+      - name: "home"
+        label: "Ana Sayfa İçeriği"
+        file: "content/home.yml"
+        fields:
+          - { label: "Açılış Görseli", name: "hero_image", widget: "image" }
+          - { label: "Başlık", name: "hero_title", widget: "string" }
+          - { label: "Alt Başlık", name: "hero_subtitle", widget: "string" }
+          - { label: "Buton Metni", name: "hero_cta_text", widget: "string" }
+          - label: "Marka Değerleri"
+            name: "value_props"
+            widget: "list"
+            field: { label: "Değer", name: "value", widget: "string" }
+          - { label: "Öne Çıkanlar Başlığı", name: "featured_title", widget: "string" }
+          - { label: "Öne Çıkanlar Alt Başlığı", name: "featured_subtitle", widget: "string" }
+
+  - name: "koleksiyon"
+    label: "Koleksiyon"
+    files:
+      - name: "koleksiyon"
+        label: "Koleksiyon Sayfası"
+        file: "content/koleksiyon.yml"
+        fields:
+          - { label: "Sayfa Başlığı", name: "page_title", widget: "string" }
+          - { label: "Sayfa Alt Başlığı", name: "page_subtitle", widget: "string" }
+          - label: "Ürünler"
+            name: "products"
+            widget: "list"
+            fields:
+              - { label: "Ürün Adı", name: "name", widget: "string" }
+              - { label: "Renk Etiketi", name: "color_tag", widget: "string" }
+              - { label: "Hex Renk Kodu", name: "color_hex", widget: "color", required: false }
+              - { label: "Açıklama", name: "description", widget: "text" }
+              - { label: "Fiyat", name: "price", widget: "string" }
+              - { label: "Ürün Görseli", name: "image", widget: "image" }
+
+  - name: "hakkimizda"
+    label: "Hakkımızda"
+    files:
+      - name: "hakkimizda"
+        label: "Hakkımızda Sayfası"
+        file: "content/hakkimizda.yml"
+        fields:
+          - { label: "Başlık", name: "page_title", widget: "string" }
+          - label: "Paragraflar"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraf", name: "paragraph", widget: "text" }
+          - { label: "İmza Satırı", name: "signature", widget: "string" }
+
+  - name: "iletisim"
+    label: "İletişim"
+    files:
+      - name: "iletisim"
+        label: "İletişim Sayfası"
+        file: "content/iletisim.yml"
+        fields:
+          - { label: "Başlık", name: "page_title", widget: "string" }
+          - { label: "Alt Başlık", name: "page_subtitle", widget: "string" }
+          - { label: "E-posta", name: "email", widget: "string" }
+          - { label: "Instagram Kullanıcı Adı", name: "instagram_handle", widget: "string" }
+          - { label: "Instagram Linki", name: "instagram_url", widget: "string" }
+          - { label: "Etsy Linki", name: "etsy_url", widget: "string" }
+          - { label: "Trendyol Metni", name: "trendyol_text", widget: "string" }
