@@ -1,10 +1,10 @@
 hero_image: /images/hero_banner.png
-hero_title: "MERAM"
-hero_subtitle: "Sadelikte bir meram var"
-hero_cta_text: "Koleksiyonu Keşfet"
+hero_title: MERAM
+hero_subtitle: "''Sadelikte bir meram var''"
+hero_cta_text: Koleksiyonu Keşfet
 value_props:
   - "%100 Pamuk"
-  - "Türkiye'de Üretim"
-  - "Sınırlı Sayıda Seri"
-featured_title: "Öne Çıkanlar"
-featured_subtitle: "Sınırlı sayıda üretiliyor"
+  - Türkiye'de Üretildi
+  - Sınırlı Sayıda Seri
+featured_title: Öne Çıkanlar
+featured_subtitle: Tutku ile üretildi...
