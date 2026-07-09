@@ -83,13 +83,13 @@ p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', mo
 .card-body h3 { font-family:'Outfit', sans-serif; font-weight:600; font-size: 17px; margin: 6px 0; }
 .card-body p { font-size: 13px; color: var(--grey); margin: 0 0 10px; min-height: 32px; }
 .price { font-family:'DM Mono', monospace; font-size: 14px; color: var(--terracotta); }
-.featured-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; max-width: 820px; margin: 0 auto; }
+.featured-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; max-width: 480px; margin: 0 auto; }
 .featured-card-img { aspect-ratio: 4/5; background-size: cover; background-position: center; }
 .featured-card-body { display:flex; justify-content:space-between; align-items:flex-start; padding-top: 18px; gap: 10px; }
-.featured-card-body .info h3 { font-family:'Italiana', serif; font-style:italic; font-weight:400; font-size: 21px; margin:0 0 4px; color: var(--ink); }
-.featured-card-body .info .tag { font-family:'Outfit', sans-serif; font-size: 13px; color: var(--grey); }
-.featured-card-body .explore-link { font-family:'DM Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform:uppercase;
-  color: var(--terracotta); text-decoration: underline; white-space:nowrap; margin-top: 3px; }
+.featured-card-body .info h3 { font-family:'Italiana', serif; font-style:italic; font-weight:400; font-size: 16px; margin:0 0 3px; color: var(--ink); }
+.featured-card-body .info .tag { font-family:'Outfit', sans-serif; font-size: 12px; color: var(--grey); }
+.featured-card-body .explore-link { font-family:'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform:uppercase;
+  color: var(--terracotta); text-decoration: underline; white-space:nowrap; margin-top: 2px; }
 .color-story-section { background: var(--sand); padding: 70px 60px; }
 .color-story-inner { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:60px; flex-wrap:wrap; }
 .color-story-title { font-family:'Italiana', serif; font-size: 46px; margin:0; letter-spacing:1px; color: var(--ink); flex: 1 1 320px; }
