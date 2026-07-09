@@ -1,15 +1,16 @@
-page_title: "Koleksiyon"
-page_subtitle: "Her tasarım sınırlı sayıda üretiliyor"
+page_title: Koleksiyon
+page_subtitle: Her tasarım sınırlı sayıda üretiliyor
 products:
-  - name: "Toprak Tişört"
-    color_tag: "Terrakota"
-    color_hex: "#B05433"
-    description: "Toprağın sıcaklığını taşıyan, derin terrakota tonu."
-    price: "TL ---,--"
+  - name: Toprak Tişört
+    color_tag: Toprak
+    color_hex: "#fbf1de"
+    description: Toprağın sıcaklığı. Topraktan gelen; saflık ve temizlik, beyaz ve
+      bejin en özel tonları ile işlendi.
+    price: TL ---,--
     image: /images/product_toprak.png
-  - name: "Zeytin Tişört"
-    color_tag: "Zeytin Yeşili"
+  - name: Zeytin Tişört
+    color_tag: Zeytin Yeşili
     color_hex: "#4B5842"
-    description: "Zeytinliğin sessizliğinden ilham alan, mat yeşil ton."
-    price: "TL ---,--"
+    description: Zeytinliğin sessizliği ve bereketinden ilham alan, mat yeşil ile işlendi.
+    price: TL ---,--
     image: /images/product_zeytin.png
