@@ -66,7 +66,8 @@ nav .links a:nth-child(3) { animation-delay: .25s; }
 nav .links a:nth-child(4) { animation-delay: .35s; }
 .value-strip { display:flex; justify-content:center; gap: 70px; padding: 40px 60px;
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  font-family:'DM Mono', monospace; font-size: 14px; letter-spacing: 1px; color: var(--grey); flex-wrap: wrap; }
+  font-family:'DM Mono', monospace; font-size: 14px; letter-spacing: 1px; color: var(--cream); flex-wrap: wrap;
+  background: var(--ink); }
 h2.section-title { font-family:'Italiana', serif; font-size: 44px; text-align:center; margin: 0 0 12px; letter-spacing: 2px; }
 p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', monospace;
   font-size: 14px; letter-spacing: 1px; margin-bottom: 60px; }
@@ -102,7 +103,9 @@ p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', mo
 .contact-social a:hover { color: var(--terracotta); }
 footer { background: var(--ink); color: var(--cream); text-align:center; padding: 50px 20px;
   font-family:'DM Mono', monospace; font-size: 13px; letter-spacing: 1px; }
-footer img { height: 30px; margin-bottom: 18px; opacity: .9; }
+footer img { height: 60px; margin-bottom: 18px; opacity: .9; }
+footer .footer-brand { font-weight:600; letter-spacing: 2px; margin-bottom: 6px; }
+footer .footer-tagline { opacity: .85; }
 .center { text-align:center; }
 `;
 
@@ -136,7 +139,8 @@ ${navHtml}
 ${body}
 <footer>
   <img src="/images/logo-light.png" alt="Meram">
-  <div>MERAM STORE — SADELİK, SICAKLIK, NİYET</div>
+  <div class="footer-brand">MERAM STORE</div>
+  <div class="footer-tagline">SADELİK, SICAKLIK, NİYET</div>
 </footer>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
