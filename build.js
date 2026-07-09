@@ -107,8 +107,8 @@ p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', mo
 .contact-social a:hover { color: var(--terracotta); }
 footer { background: var(--ink); color: var(--cream); padding: 60px 60px 30px;
   font-family:'DM Mono', monospace; font-size: 14px; letter-spacing: 0.5px; }
-.footer-grid { display:flex; justify-content:space-between; gap: 60px; flex-wrap:wrap; max-width:1400px; margin:0 auto; }
-.footer-brand-col { flex: 1 1 260px; }
+.footer-grid { display:grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; max-width:1400px; margin:0 auto; }
+.footer-brand-col { max-width: 320px; }
 .footer-logo-box { display:inline-block; background: var(--cream); padding: 14px 22px; margin-bottom: 18px; }
 .footer-logo-box img { height: 34px; display:block; }
 .footer-tagline-text { color: #C9C2B4; font-size: 14px; margin:0; }
@@ -167,6 +167,11 @@ ${body}
       <a href="${iletisim.instagram_url}" target="_blank" rel="noopener">Instagram</a>
       <a href="${iletisim.etsy_url}" target="_blank" rel="noopener">Etsy</a>
       <a href="#">Trendyol</a>
+    </div>
+    <div class="footer-col">
+      <h4>İletişim</h4>
+      <a href="mailto:${iletisim.email}">${iletisim.email}</a>
+      <a href="/iletisim.html">Bize Ulaşın</a>
     </div>
   </div>
   <div class="footer-bottom">
