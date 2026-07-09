@@ -33,7 +33,7 @@ const STYLE = `
 body { margin:0; background: var(--cream); color: var(--ink); font-family: 'Outfit', sans-serif; }
 nav { display:flex; align-items:center; justify-content:space-between; padding: 22px 60px;
   border-bottom: 1px solid var(--line); position: sticky; top:0; background: var(--cream); z-index: 10; }
-nav img { height: 34px; }
+nav img { height: 68px; }
 nav .links a { color: var(--ink); text-decoration:none; margin-left: 34px; font-size: 14px;
   letter-spacing: 1px; text-transform: uppercase; font-weight:500; }
 nav .links a.active, nav .links a:hover { color: var(--terracotta); }
@@ -44,6 +44,9 @@ section { padding: 90px 60px; max-width: 1400px; margin: 0 auto; }
 .hero-veil { position:absolute; top:0; height:100%; background: var(--cream); }
 .hero-veil.veil-sand { left:62%; width:24%; animation: veilSand 1.1s ease both; animation-delay: .35s; }
 .hero-veil.veil-terracotta { left:86%; width:14%; animation: veilTerracotta 1.1s ease both; animation-delay: .5s; }
+.hero-photo { position:absolute; top:8%; bottom:14%; left:46%; width:28%; background-size:cover;
+  background-position:center; box-shadow: 0 25px 60px rgba(0,0,0,.3); opacity:0; transform: translateY(160px);
+  animation: photoRise 1.1s cubic-bezier(.22,1,.36,1) both; animation-delay: 1.05s; }
 .hero-overlay { position:absolute; top:0; left:0; height:100%; display:flex; flex-direction:column;
   justify-content:center; padding: 0 60px; max-width: 640px; }
 .hero-overlay .eyebrow { font-family:'DM Mono', monospace; letter-spacing:2px; color: var(--terracotta); margin-bottom: 10px; }
@@ -58,6 +61,7 @@ section { padding: 90px 60px; max-width: 1400px; margin: 0 auto; }
 @keyframes veilSand { from { background: var(--cream); } to { background: var(--sand); } }
 @keyframes veilTerracotta { from { background: var(--cream); } to { background: var(--terracotta); } }
 @keyframes riseUp { from { opacity:0; transform: translateY(46px); } to { opacity:1; transform: translateY(0); } }
+@keyframes photoRise { from { opacity:0; transform: translateY(160px); } to { opacity:1; transform: translateY(0); } }
 @keyframes dropDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }
 nav .links a { opacity:0; transform: translateY(-18px); animation: dropDown .6s ease both; }
 nav .links a:nth-child(1) { animation-delay: .05s; }
@@ -182,6 +186,7 @@ const homeBody = `
   <img src="${home.hero_image}" alt="Meram Hero">
   <div class="hero-veil veil-sand"></div>
   <div class="hero-veil veil-terracotta"></div>
+  <div class="hero-photo" style="background-image:url('/images/hero_photo.webp')"></div>
   <div class="hero-overlay">
     <div class="eyebrow">MERAM STORE</div>
     <h1>${home.hero_title}</h1>
