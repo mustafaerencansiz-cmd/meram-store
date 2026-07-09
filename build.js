@@ -83,6 +83,20 @@ p.section-sub { text-align:center; color: var(--grey); font-family:'DM Mono', mo
 .card-body h3 { font-family:'Outfit', sans-serif; font-weight:600; font-size: 17px; margin: 6px 0; }
 .card-body p { font-size: 13px; color: var(--grey); margin: 0 0 10px; min-height: 32px; }
 .price { font-family:'DM Mono', monospace; font-size: 14px; color: var(--terracotta); }
+.featured-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; max-width: 1400px; margin: 0 auto; }
+.featured-card-img { aspect-ratio: 4/5; background-size: cover; background-position: center; }
+.featured-card-body { display:flex; justify-content:space-between; align-items:flex-start; padding-top: 18px; gap: 10px; }
+.featured-card-body .info h3 { font-family:'Italiana', serif; font-style:italic; font-weight:400; font-size: 21px; margin:0 0 4px; color: var(--ink); }
+.featured-card-body .info .tag { font-family:'Outfit', sans-serif; font-size: 13px; color: var(--grey); }
+.featured-card-body .explore-link { font-family:'DM Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform:uppercase;
+  color: var(--terracotta); text-decoration: underline; white-space:nowrap; margin-top: 3px; }
+.color-story-section { background: var(--sand); padding: 100px 60px; }
+.color-story-inner { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:60px; flex-wrap:wrap; }
+.color-story-title { font-family:'Italiana', serif; font-size: 46px; margin:0; letter-spacing:1px; color: var(--ink); flex: 1 1 320px; }
+.color-story-right { flex: 1 1 320px; }
+.color-story-text { font-family:'Outfit', sans-serif; font-size:16px; color:#5b4f42; margin: 0 0 24px; }
+.reveal-on-scroll { opacity:0; transform: translateY(40px); transition: opacity 1s ease, transform 1s cubic-bezier(.22,1,.36,1); }
+.reveal-on-scroll.is-visible { opacity:1; transform: translateY(0); }
 .about { display:flex; gap: 80px; align-items:center; flex-wrap: wrap; }
 .about .visual { flex: 0 0 340px; height: 420px; background: var(--olive); display:flex; align-items:center; justify-content:center; }
 .about .visual span { font-family:'Italiana', serif; color: var(--cream); font-size: 30px; letter-spacing: 6px; }
@@ -191,6 +205,25 @@ ${body}
     });
   }
 </script>
+<script>
+  (function () {
+    var els = document.querySelectorAll(".reveal-on-scroll");
+    if (!els.length) return;
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    els.forEach(function (el) { obs.observe(el); });
+  })();
+</script>
 </body>
 </html>`;
 }
@@ -204,6 +237,20 @@ function productCard(p) {
             <h3>${p.name}</h3>
             <p>${p.description}</p>
             <span class="price">${p.price}</span>
+          </div>
+        </div>`;
+}
+
+function featuredProductCard(p) {
+  return `
+        <div class="featured-card">
+          <div class="featured-card-img" style="background-image:url('${p.image}')"></div>
+          <div class="featured-card-body">
+            <div class="info">
+              <h3>${p.name}</h3>
+              <div class="tag">${p.color_tag}</div>
+            </div>
+            <a href="/koleksiyon.html" class="explore-link">İncele</a>
           </div>
         </div>`;
 }
@@ -233,10 +280,19 @@ const homeBody = `
 <section>
   <h2 class="section-title">${home.featured_title}</h2>
   <p class="section-sub">${home.featured_subtitle.toUpperCase()}</p>
-  <div class="grid">${koleksiyon.products.map(productCard).join("")}
+  <div class="featured-grid">${koleksiyon.products.map(featuredProductCard).join("")}
   </div>
   <div class="center" style="margin-top:50px;">
     <a href="/koleksiyon.html" class="cta-btn">Tüm Koleksiyonu Gör</a>
+  </div>
+</section>
+<section class="color-story-section">
+  <div class="color-story-inner reveal-on-scroll">
+    <h2 class="color-story-title">Her renk, bir his.</h2>
+    <div class="color-story-right">
+      <p class="color-story-text">${koleksiyon.products.length} renk, ${koleksiyon.products.length} his. Koleksiyonun tamamını keşfet.</p>
+      <a href="/koleksiyon.html" class="cta-btn">Koleksiyona Git</a>
+    </div>
   </div>
 </section>
 `;
