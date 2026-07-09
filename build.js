@@ -38,16 +38,32 @@ nav .links a { color: var(--ink); text-decoration:none; margin-left: 34px; font-
   letter-spacing: 1px; text-transform: uppercase; font-weight:500; }
 nav .links a.active, nav .links a:hover { color: var(--terracotta); }
 section { padding: 90px 60px; max-width: 1400px; margin: 0 auto; }
-.hero-section { padding: 0; max-width: none; position: relative; }
+.hero-section { padding: 0; max-width: none; position: relative; overflow:hidden;
+  animation: heroOpen 1.1s cubic-bezier(.65,0,.35,1) both; }
 .hero-section img { width: 100%; display:block; }
+.hero-veil { position:absolute; top:0; height:100%; background: var(--cream); }
+.hero-veil.veil-sand { left:62%; width:24%; animation: veilSand 1.1s ease both; animation-delay: .35s; }
+.hero-veil.veil-terracotta { left:86%; width:14%; animation: veilTerracotta 1.1s ease both; animation-delay: .5s; }
 .hero-overlay { position:absolute; top:0; left:0; height:100%; display:flex; flex-direction:column;
   justify-content:center; padding: 0 60px; max-width: 640px; }
 .hero-overlay .eyebrow { font-family:'DM Mono', monospace; letter-spacing:2px; color: var(--terracotta); margin-bottom: 10px; }
 .hero-overlay h1 { font-family:'Italiana', serif; font-size: 90px; margin: 0 0 20px; letter-spacing: 4px; }
 .hero-overlay .sub { font-family:'DM Mono', monospace; letter-spacing:3px; font-size: 18px; margin-bottom: 34px; color: #443c35;}
+.hero-overlay .cta-btn { opacity:0; transform: translateY(46px);
+  animation: riseUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay: .9s; }
 .cta-btn { display:inline-block; border: 2px solid var(--ink); padding: 16px 40px;
   font-family:'Outfit', sans-serif; font-weight:700; letter-spacing:2px; font-size:13px;
   text-transform:uppercase; text-decoration:none; color: var(--ink); background: var(--cream); }
+@keyframes heroOpen { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes veilSand { from { background: var(--cream); } to { background: var(--sand); } }
+@keyframes veilTerracotta { from { background: var(--cream); } to { background: var(--terracotta); } }
+@keyframes riseUp { from { opacity:0; transform: translateY(46px); } to { opacity:1; transform: translateY(0); } }
+@keyframes dropDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }
+nav .links a { opacity:0; transform: translateY(-18px); animation: dropDown .6s ease both; }
+nav .links a:nth-child(1) { animation-delay: .05s; }
+nav .links a:nth-child(2) { animation-delay: .15s; }
+nav .links a:nth-child(3) { animation-delay: .25s; }
+nav .links a:nth-child(4) { animation-delay: .35s; }
 .value-strip { display:flex; justify-content:center; gap: 70px; padding: 40px 60px;
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   font-family:'DM Mono', monospace; font-size: 14px; letter-spacing: 1px; color: var(--grey); flex-wrap: wrap; }
@@ -160,6 +176,8 @@ const iletisim = loadYml("iletisim.yml");
 const homeBody = `
 <section class="hero-section">
   <img src="${home.hero_image}" alt="Meram Hero">
+  <div class="hero-veil veil-sand"></div>
+  <div class="hero-veil veil-terracotta"></div>
   <div class="hero-overlay">
     <div class="eyebrow">MERAM STORE</div>
     <h1>${home.hero_title}</h1>
